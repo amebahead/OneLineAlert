@@ -12,6 +12,11 @@
 		1D16BF35237E9365000DD80E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D16BF33237E9365000DD80E /* Main.storyboard */; };
 		1D16BF37237E9366000DD80E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D16BF36237E9366000DD80E /* Assets.xcassets */; };
 		1D16BF3A237E9366000DD80E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D16BF38237E9366000DD80E /* LaunchScreen.storyboard */; };
+		1DBC3DB0237E9589006F8AB7 /* OneLineAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAB237E9589006F8AB7 /* OneLineAlert+Extension.swift */; };
+		1DBC3DB1237E9589006F8AB7 /* OneLineAlert+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAC237E9589006F8AB7 /* OneLineAlert+Animate.swift */; };
+		1DBC3DB2237E9589006F8AB7 /* OneLineAlert+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAD237E9589006F8AB7 /* OneLineAlert+Utility.swift */; };
+		1DBC3DB3237E9589006F8AB7 /* OneLineAlert+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAE237E9589006F8AB7 /* OneLineAlert+Action.swift */; };
+		1DBC3DB4237E9589006F8AB7 /* OneLineAlert+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAF237E9589006F8AB7 /* OneLineAlert+View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		1D16BF36237E9366000DD80E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D16BF39237E9366000DD80E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D16BF3B237E9366000DD80E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DBC3DAB237E9589006F8AB7 /* OneLineAlert+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+Extension.swift"; sourceTree = "<group>"; };
+		1DBC3DAC237E9589006F8AB7 /* OneLineAlert+Animate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+Animate.swift"; sourceTree = "<group>"; };
+		1DBC3DAD237E9589006F8AB7 /* OneLineAlert+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+Utility.swift"; sourceTree = "<group>"; };
+		1DBC3DAE237E9589006F8AB7 /* OneLineAlert+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+Action.swift"; sourceTree = "<group>"; };
+		1DBC3DAF237E9589006F8AB7 /* OneLineAlert+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 		1D16BF2E237E9365000DD80E /* OneLineAlert */ = {
 			isa = PBXGroup;
 			children = (
+				1DBC3DAA237E9559006F8AB7 /* Core */,
 				1D16BF2F237E9365000DD80E /* AppDelegate.swift */,
 				1D16BF31237E9365000DD80E /* ViewController.swift */,
 				1D16BF33237E9365000DD80E /* Main.storyboard */,
@@ -62,6 +73,18 @@
 				1D16BF3B237E9366000DD80E /* Info.plist */,
 			);
 			path = OneLineAlert;
+			sourceTree = "<group>";
+		};
+		1DBC3DAA237E9559006F8AB7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1DBC3DAE237E9589006F8AB7 /* OneLineAlert+Action.swift */,
+				1DBC3DAC237E9589006F8AB7 /* OneLineAlert+Animate.swift */,
+				1DBC3DAB237E9589006F8AB7 /* OneLineAlert+Extension.swift */,
+				1DBC3DAD237E9589006F8AB7 /* OneLineAlert+Utility.swift */,
+				1DBC3DAF237E9589006F8AB7 /* OneLineAlert+View.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +159,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D16BF32237E9365000DD80E /* ViewController.swift in Sources */,
+				1DBC3DB2237E9589006F8AB7 /* OneLineAlert+Utility.swift in Sources */,
+				1DBC3DB4237E9589006F8AB7 /* OneLineAlert+View.swift in Sources */,
+				1DBC3DB1237E9589006F8AB7 /* OneLineAlert+Animate.swift in Sources */,
+				1DBC3DB0237E9589006F8AB7 /* OneLineAlert+Extension.swift in Sources */,
 				1D16BF30237E9365000DD80E /* AppDelegate.swift in Sources */,
+				1DBC3DB3237E9589006F8AB7 /* OneLineAlert+Action.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -268,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
