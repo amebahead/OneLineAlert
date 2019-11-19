@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showNoTitleAlert(_ sender: Any) {
-        self.yesAlert(title: "", message: "카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)") {
+        self.yesAlert(title: "", message: "카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)카드 단말기에 연결할 수 없습니다.\n 네트웍 연결을 확인 하십시오.\n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)n (작업을 완료할 수 없습니다. \nSwiftSocket.SocketError 오류 3.)") {
             print("Yes")
         }
     }

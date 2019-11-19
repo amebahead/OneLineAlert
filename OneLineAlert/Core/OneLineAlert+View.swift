@@ -14,11 +14,11 @@ class OneLineAlertView: UIViewController {
     var alertTitle: String?
     
     // Message
-    var message: String?
+    var alertMsg: String?
     
     // OverlayView
     internal var overlayView = UIView()
-    var overlayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+    let overlayColor: UIColor
     
     // ContainerView
     fileprivate var containerView = UIView()
@@ -26,15 +26,16 @@ class OneLineAlertView: UIViewController {
     
     // AlertView
     internal var alertView = UIView()
-    var alertViewBgColor = UIColor(hex: "FFFFFF")
-    let alertViewWidth: CGFloat = 400.0
-    let alertViewHeight: CGFloat = 200.0
+    let alertViewBgColor: UIColor
+    let alertViewWidth: CGFloat
+    let alertViewHeight: CGFloat
     var alertViewHeightConstraint: NSLayoutConstraint?
-    var alertViewPadding: CGFloat = 13.0
-    var innerContentWidth: CGFloat = 340.0
+    let alertViewPadding: CGFloat
+    let innerContentWidth: CGFloat
+    let alertViewMaxHeight: CGFloat
     
     // SeparateLine
-    let separateLineHeight: CGFloat = 2.0
+    let separateLineHeight: CGFloat
     
     // TextAreaScrollView
     fileprivate var textAreaScrollView = UIScrollView()
@@ -49,11 +50,13 @@ class OneLineAlertView: UIViewController {
     
     // TitleLabel
     var titleLabel = UILabel()
-    var titleTextColor = UIColor(hex: "3d454c")
+    let titleTextColor: UIColor
+    let titleTextSize: UIFont
     
     // MessageLabel
     var messageLabel = UILabel()
-    var messageTextColor = UIColor(hex: "3d454c")
+    let messageTextColor: UIColor
+    let messageTextSize: UIFont
     
     // ButtonAreaView
     fileprivate var buttonAreaView = UIView()
@@ -63,8 +66,8 @@ class OneLineAlertView: UIViewController {
     // ButtonContainerView (StackView)
     fileprivate var buttonContainerView = UIStackView()
     var buttonContainerHeightConstraint: NSLayoutConstraint?
-    let buttonHeight: CGFloat = 50.0
-    var buttonMargin: CGFloat = 0.0
+    let buttonHeight: CGFloat
+    let buttonMargin: CGFloat
     
     // Actions
     fileprivate(set) var actions: [AnyObject] = []
@@ -76,6 +79,21 @@ class OneLineAlertView: UIViewController {
     
     // Initializer
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.overlayColor = OneLineAlertConfigure.shared.overlayColor
+        self.alertViewBgColor = OneLineAlertConfigure.shared.alertViewBgColor
+        self.alertViewWidth = OneLineAlertConfigure.shared.alertViewWidth
+        self.alertViewHeight = OneLineAlertConfigure.shared.alertViewHeight
+        self.alertViewPadding = OneLineAlertConfigure.shared.alertViewPadding
+        self.innerContentWidth = OneLineAlertConfigure.shared.innerContentWidth
+        self.separateLineHeight = OneLineAlertConfigure.shared.separateLineHeight
+        self.titleTextColor = OneLineAlertConfigure.shared.titleTextColor
+        self.titleTextSize = OneLineAlertConfigure.shared.titleTextSize
+        self.messageTextColor = OneLineAlertConfigure.shared.messageTextColor
+        self.messageTextSize = OneLineAlertConfigure.shared.messageTextSize
+        self.buttonHeight = OneLineAlertConfigure.shared.buttonHeight
+        self.buttonMargin = OneLineAlertConfigure.shared.buttonMargin
+        self.alertViewMaxHeight = OneLineAlertConfigure.shared.alertViewMaxHeight
+        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -83,7 +101,7 @@ class OneLineAlertView: UIViewController {
         self.init(nibName: nil, bundle: nil)
         
         self.alertTitle = title
-        self.message = message
+        self.alertMsg = message
         
         self.providesPresentationContextTransitionStyle = true
         self.definesPresentationContext = true
@@ -126,6 +144,7 @@ class OneLineAlertView: UIViewController {
 
 // MARK: - Function
 extension OneLineAlertView {
+    
     func currentOrientation() -> UIInterfaceOrientation {
         return UIScreen.main.bounds.size.width < UIScreen.main.bounds.size.height ? .portrait : .landscapeLeft
     }
@@ -256,7 +275,7 @@ extension OneLineAlertView {
         // TextArea Layout
         //------------------------------
         let hasTitle: Bool = self.alertTitle != nil && self.alertTitle != ""
-        let hasMessage: Bool = self.message != nil && self.message != ""
+        let hasMessage: Bool = self.alertMsg != nil && self.alertMsg != ""
         
         var textAreaPositionY: CGFloat = alertViewPadding
         
@@ -265,7 +284,7 @@ extension OneLineAlertView {
             titleLabel.frame.size = CGSize(width: innerContentWidth, height: 0.0)
             titleLabel.numberOfLines = 0
             titleLabel.textAlignment = .center
-            titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+            titleLabel.font = titleTextSize
             titleLabel.textColor = titleTextColor
             titleLabel.text = self.alertTitle
             titleLabel.sizeToFit()
@@ -279,9 +298,9 @@ extension OneLineAlertView {
             messageLabel.frame.size = CGSize(width: innerContentWidth, height: 0.0)
             messageLabel.numberOfLines = 0
             messageLabel.textAlignment = .center
-            messageLabel.font = titleLabel.font.withSize(16)
+            messageLabel.font = messageTextSize
             messageLabel.textColor = messageTextColor
-            messageLabel.text = message
+            messageLabel.text = alertMsg
             messageLabel.sizeToFit()
             messageLabel.frame = CGRect(x: 0, y: textAreaPositionY, width: innerContentWidth, height: messageLabel.frame.height)
             textContainer.addSubview(messageLabel)
@@ -289,7 +308,7 @@ extension OneLineAlertView {
         }
         
         if (!hasTitle) {
-            messageLabel.font = UIFont.boldSystemFont(ofSize: 24)
+            messageLabel.font = titleTextSize
             messageLabel.sizeToFit()
             textAreaPositionY = messageLabel.frame.height + alertViewPadding
         }
@@ -345,8 +364,17 @@ extension OneLineAlertView {
         // AlertView Layout
         //------------------------------
         // AlertView Height
-        alertViewHeightConstraint?.constant = alertViewHeight
-        alertView.frame.size = CGSize(width: alertViewWidth, height: alertViewHeight)
+        self.resizingAlertView()
+        alertView.frame.size = CGSize(width: alertViewWidth, height: alertViewHeightConstraint?.constant ?? alertViewHeight)
+    }
+    
+    private func resizingAlertView() {
+        var resizeAlertViewHeight = textAreaHeight + buttonAreaHeight
+        if resizeAlertViewHeight > alertViewMaxHeight {
+            resizeAlertViewHeight = alertViewMaxHeight
+        }
+        
+        alertViewHeightConstraint?.constant = resizeAlertViewHeight
     }
     
     internal func addAction(_ action: OneLineAlertAction) {
@@ -364,6 +392,7 @@ extension OneLineAlertView {
         buttonContainerView.addArrangedSubview(button)
     }
     
+    // Button Touch EventListener
     @objc func buttonTapped(_ sender: UIButton) {
         sender.isSelected = true
         let action = self.actions[sender.tag - 1] as! OneLineAlertAction

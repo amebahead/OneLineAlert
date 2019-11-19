@@ -17,6 +17,7 @@
 		1DBC3DB2237E9589006F8AB7 /* OneLineAlert+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAD237E9589006F8AB7 /* OneLineAlert+Utility.swift */; };
 		1DBC3DB3237E9589006F8AB7 /* OneLineAlert+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAE237E9589006F8AB7 /* OneLineAlert+Action.swift */; };
 		1DBC3DB4237E9589006F8AB7 /* OneLineAlert+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC3DAF237E9589006F8AB7 /* OneLineAlert+View.swift */; };
+		1DE8BC7F2382957200154BF9 /* OneLineAlert+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8BC7E2382957200154BF9 /* OneLineAlert+Configure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1DBC3DAD237E9589006F8AB7 /* OneLineAlert+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+Utility.swift"; sourceTree = "<group>"; };
 		1DBC3DAE237E9589006F8AB7 /* OneLineAlert+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+Action.swift"; sourceTree = "<group>"; };
 		1DBC3DAF237E9589006F8AB7 /* OneLineAlert+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+View.swift"; sourceTree = "<group>"; };
+		1DE8BC7E2382957200154BF9 /* OneLineAlert+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OneLineAlert+Configure.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				1DBC3DAB237E9589006F8AB7 /* OneLineAlert+Extension.swift */,
 				1DBC3DAD237E9589006F8AB7 /* OneLineAlert+Utility.swift */,
 				1DBC3DAF237E9589006F8AB7 /* OneLineAlert+View.swift */,
+				1DE8BC7E2382957200154BF9 /* OneLineAlert+Configure.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				1DBC3DB1237E9589006F8AB7 /* OneLineAlert+Animate.swift in Sources */,
 				1DBC3DB0237E9589006F8AB7 /* OneLineAlert+Extension.swift in Sources */,
 				1D16BF30237E9365000DD80E /* AppDelegate.swift in Sources */,
+				1DE8BC7F2382957200154BF9 /* OneLineAlert+Configure.swift in Sources */,
 				1DBC3DB3237E9589006F8AB7 /* OneLineAlert+Action.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
