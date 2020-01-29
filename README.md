@@ -1,4 +1,5 @@
 # OneLineAlert
+코드 한줄로 추가하는 Simple AlertView
 
 <table>
   <tr>
@@ -18,3 +19,10 @@
     </td>
   <tr>
 </table>
+
+## Requirements
+
+## Usage
+
+## License
+OneLineAlert is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
